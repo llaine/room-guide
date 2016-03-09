@@ -1,25 +1,39 @@
-Ionic App Base
-=====================
+<big><h1 align="center">room-guide</h1></big>
+<p align="center">
+  <a href="https://www.bithound.io/github/jermorin/room-guide">
+    <img src="https://www.bithound.io/github/jermorin/room-guide/badges/score.svg"
+         alt="bitHound Overall Score">
+  </a>
 
-A starting project for Ionic that optionally supports using custom SCSS.
+  <a href="https://www.bithound.io/github/jermorin/room-guide/master/dependencies/npm">
+    <img src="https://www.bithound.io/github/jermorin/room-guide/badges/dependencies.svg"
+         alt="bitHound Dependencies">
+  </a>
 
-## Using this project
+  <a href="https://www.bithound.io/github/jermorin/room-guide/master/dependencies/npm">
+    <img src="https://www.bithound.io/github/jermorin/room-guide/badges/devDependencies.svg"
+         alt="bitHound Dev Dependencies">
+  </a>
 
-We recommend using the [Ionic CLI](https://github.com/driftyco/ionic-cli) to create new Ionic projects that are based on this project but use a ready-made starter template.
+  <a href="https://www.bithound.io/github/jermorin/room-guide">
+    <img src="https://www.bithound.io/github/jermorin/room-guide/badges/code.svg"
+         alt="bitHound Code">
+  </a>
+</p>
 
-For example, to start a new Ionic project with the default tabs interface, make sure the `ionic` utility is installed:
+## Install
 
-```bash
-$ npm install -g ionic
+```sh
+npm install -g ionic
+npm install
 ```
 
-Then run:
+## Usage
 
-```bash
-$ ionic start myProject tabs
+```js
+$: ionic serve
 ```
 
-More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/getting-started) page and the [Ionic CLI](https://github.com/driftyco/ionic-cli) repo.
+## License
 
-## Issues
-Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/submit-issue/) to the main Ionic repository.
+MIT © [Jérémy Morin](http://github.com/jermorin)
