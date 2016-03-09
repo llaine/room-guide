@@ -1,0 +1,9 @@
+<ion-view view-title="Room {{room.roomId}}">
+  <ion-content>
+    <ion-list>
+      <ion-item menu-close ng-repeat="record in room.records">
+        {{record.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
