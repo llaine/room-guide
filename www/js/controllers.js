@@ -15,8 +15,9 @@ angular.module('starter.controllers', [])
 
   .controller('RoomCtrl', function ($scope, $stateParams, AudioFactory) {
     var self = this;
-
+    
     self.roomId = $stateParams.roomId;
+
     // $stateParams.roomId return a string.
     self.tracks = AudioFactory.getSongsForRoom(parseInt($stateParams.roomId))
   });
