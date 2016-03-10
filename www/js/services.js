@@ -1,6 +1,5 @@
 angular.module('starter.services', [])
   .factory('AudioFactory', function() {
-
     /**
      * Simple function which returns an array of songs
      * based on the room id's number.
@@ -9,7 +8,7 @@ angular.module('starter.services', [])
      */
     function getSongs(idRoom) {
       var songs = [];
-      switch(parseInt(idRoom)) {
+      switch(idRoom) {
         case 1:
           return [
             {
