@@ -34,6 +34,18 @@ npm install
 $: ionic serve
 ```
 
+###Emulate
+
+```js
+$: ionic emulate android
+$: ionic emulate ios
+```
+
+##Todo
+
+- [ ] use [ionic-audio](https://github.com/arielfaur/ionic-audio)
+
+
 ## License
 
 MIT © [Jérémy Morin](http://github.com/jermorin)
