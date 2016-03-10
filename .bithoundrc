@@ -1,1 +1,5 @@
-www/lib/*
+{
+  "ignore": [
+    "www/lib/**"
+  ]
+}

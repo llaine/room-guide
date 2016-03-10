@@ -21,6 +21,10 @@
   </a>
 </p>
 
+<p align="center">
+  Play records about museum room
+</p>
+
 ## Install
 
 ```sh

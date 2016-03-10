@@ -1,9 +1,24 @@
 <ion-view view-title="Room {{room.roomId}}">
   <ion-content>
-    <ion-list>
-      <ion-item menu-close ng-repeat="record in room.records">
-        {{record.title}}
-      </ion-item>
-    </ion-list>
+    <ion-audio-track ng-repeat="track in room.tracks" track="track">
+      <div class="card">
+        <div class="item item-thumbnail-left">
+          <img src="{{track.art}}">
+
+          <h2>{{track.title}}</h2>
+
+          <p>{{track.artist}}</p>
+          <ion-audio-controls>
+            <a class="button button-icon icon" ion-audio-play></a>
+            <ion-spinner icon="ios" style="position: relative; top: 8px; left: 4px"></ion-spinner>
+          </ion-audio-controls>
+        </div>
+      </div>
+    </ion-audio-track>
+    <div class="card">
+      <div class="item item-divider item-stable">
+        <ion-audio-progress-bar display-time display-info></ion-audio-progress-bar>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
