@@ -30,6 +30,20 @@
 ```sh
 npm install -g ionic
 npm install
+bower install
+```
+
+###Install plugins 
+
+```sh
+ionic plugin add cordova-plugin-device
+ionic plugin add cordova-plugin-console
+ionic plugin add ionic-plugin-keyboard
+ionic plugin add cordova-plugin-file
+ionic plugin add cordova-plugin-splashscreen
+ionic plugin add cordova-plugin-media
+ionic plugin add cordova-plugin-whitelist
+
 ```
 
 ## Usage
