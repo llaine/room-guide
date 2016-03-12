@@ -61,7 +61,8 @@ $: ionic emulate ios
 
 ##Todo
 
-- [ ] use [ionic-audio](https://github.com/arielfaur/ionic-audio)
+- [x] use [ionic-audio](https://github.com/arielfaur/ionic-audio)
+- [ ] use [angular-translate](https://www.thepolyglotdeveloper.com/2014/08/internationalization-localization-ionicframework-angular-translate/)
 
 
 ## License
