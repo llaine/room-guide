@@ -21,7 +21,8 @@
     "cordova-plugin-file",
     "cordova-plugin-splashscreen",
     "cordova-plugin-media",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    "cordova-plugin-globalization"
   ],
   "cordovaPlatforms": []
 }
