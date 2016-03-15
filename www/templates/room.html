@@ -1,4 +1,4 @@
-<ion-view view-title="Room {{room.roomId}}">
+<ion-view view-title="{{'room' | translate | capitalize}} {{room.roomId}}">
   <ion-content>
     <ion-audio-track ng-repeat="track in room.tracks" track="track">
       <div class="card">

@@ -14,12 +14,12 @@
 
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Rooms</h1>
+      <h1 class="title">{{'rooms' | translate | capitalize}}</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
         <ion-item menu-close ng-repeat="room in main.rooms" href="#/app/rooms/{{room.id}}">
-          {{room.title}}
+          {{'room' | translate | capitalize}} {{room.id}}
         </ion-item>
       </ion-list>
     </ion-content>

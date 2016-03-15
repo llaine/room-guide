@@ -43,7 +43,7 @@ ionic plugin add cordova-plugin-file
 ionic plugin add cordova-plugin-splashscreen
 ionic plugin add cordova-plugin-media
 ionic plugin add cordova-plugin-whitelist
-
+ionic plugin add cordova-plugin-globalization
 ```
 
 ## Usage
