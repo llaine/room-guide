@@ -1,23 +1,40 @@
 angular.module('starter.controllers', [])
 
-  .controller('AppCtrl', function () {
-    var self = this;
+  .controller('AppCtrl', function ($rootScope) {
 
-    self.rooms = [
-      {title: 'Room1', id: 1},
-      {title: 'Room2', id: 2},
-      {title: 'Room3', id: 3},
-      {title: 'Room4', id: 4},
-      {title: 'Room5', id: 5},
-      {title: 'Room6', id: 6}
-    ];
   })
 
-  .controller('RoomCtrl', function ($scope, $stateParams, AudioFactory) {
+  .controller('RoomCtrl', function ($stateParams, $rootScope) {
     var self = this;
-    
-    self.roomId = $stateParams.roomId;
 
-    // $stateParams.roomId return a string.
-    self.tracks = AudioFactory.getSongsForRoom(parseInt($stateParams.roomId))
+    function _init() {
+      var roomIdParsed = parseInt($stateParams.roomId);
+      self.room = $rootScope.rooms[roomIdParsed - 1];
+      self.tracks = $rootScope.rooms[roomIdParsed - 1].songs;
+    }
+
+    _init();
+  })
+
+  .controller('HomeCtrl', function ($translate, $ionicHistory, $rootScope, RoomsFactory) {
+    var self = this;
+
+    function _init() {
+      self.changeLanguage = changeLanguage;
+    }
+
+    function changeLanguage(lang) {
+      $ionicHistory.clearHistory();
+      $ionicHistory.clearCache().then(function () {
+        $translate.use(lang);
+        $rootScope.rooms = RoomsFactory.getRooms(lang);
+        $state.go('app.home');
+      });
+    }
+
+    _init();
+  })
+
+  .controller('AboutCtrl', function () {
+
   });

@@ -1,4 +1,4 @@
-<ion-side-menus enable-menu-with-back-views="false">
+<ion-side-menus>
   <ion-side-menu-content>
     <ion-nav-bar class="bar-stable">
       <ion-nav-back-button>
@@ -18,8 +18,14 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-repeat="room in main.rooms" href="#/app/rooms/{{room.id}}">
-          {{'room' | translate | capitalize}} {{room.id}}
+        <ion-item menu-close href="#/app/home/">
+          {{'home.title' | translate | capitalize}}
+        </ion-item>
+        <ion-item menu-close ng-repeat="room in rooms" href="#/app/rooms/{{$index + 1}}">
+          {{room.name}}
+        </ion-item>
+        <ion-item menu-close href="#/app/about/">
+          {{'about.title' | translate | capitalize}}
         </ion-item>
       </ion-list>
     </ion-content>

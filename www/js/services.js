@@ -1,52 +1,85 @@
 angular.module('starter.services', [])
-  .factory('AudioFactory', function() {
-    /**
-     * Simple function which returns an array of songs
-     * based on the room id's number.
-     * TODO : Change by async $http request and dynamic switch/case
-     * @param idRoom
-     */
-    function getSongs(idRoom) {
-      var songs = [];
-      switch(idRoom) {
-        case 1:
-          return [
-            {
-              url: 'https://ionic-audio.s3.amazonaws.com/Message%20in%20a%20bottle.mp3',
-              artist: 'The Police',
-              title: 'Message in a bottle',
-              art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
-            }
-          ];
-          break;
-        case 2:
-          return [
-            {
-              url: 'https://ionic-audio.s3.amazonaws.com/Roxane.mp3',
-              artist: 'The Police',
-              title: 'Roxane',
-              art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
-            },
-            {
-              url: 'https://ionic-audio.s3.amazonaws.com/Message%20in%20a%20bottle.mp3',
-              artist: 'The Police',
-              title: 'Message in a bottle',
-              art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
-            }
-          ];
-        default:
-          return songs;
+  .factory('RoomsFactory', function () {
+    var frRooms = [
+      {
+        name: 'Salle 1',
+        description: 'Description room sample [FR]',
+        art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg',
+        songs: [
+          {
+            title: 'Message in a bottle [FR]',
+            artist: 'The Police',
+            url: 'https://ionic-audio.s3.amazonaws.com/Message%20in%20a%20bottle.mp3'
+          },
+          {
+            title: 'Roxane [FR]',
+            artist: 'The Police',
+            art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
+          }
+        ]
+      },{
+        name: 'Salle 2',
+        description: 'Description room sample [FR]',
+        art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg',
+        songs: [
+          {
+            title: 'Roxane [FR]',
+            artist: 'The Police',
+            art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
+          }
+        ]
+      }
+    ];
+    var enRooms = [
+      {
+        name: 'Room 1',
+        description: 'Description room sample [EN]',
+        art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg',
+        songs: [
+          {
+            title: 'Message in a bottle [EN]',
+            artist: 'The Police',
+            url: 'https://ionic-audio.s3.amazonaws.com/Message%20in%20a%20bottle.mp3'
+          },
+          {
+            title: 'Roxane [EN]',
+            artist: 'The Police',
+            art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
+          }
+        ]
+      },{
+        name: 'Room 2',
+        description: 'Description room sample [EN]',
+        art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg',
+        songs: [
+          {
+            title: 'Roxane [EN]',
+            artist: 'The Police',
+            art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
+          }
+        ]
+      }
+    ];
+
+
+    function getRooms(locale) {
+      switch (locale){
+        case 'fr':
+          return frRooms;
+        case 'en':
+          return enRooms;
       }
     }
 
     return {
       /**
        * Public API for the AudioFactory's songs catcher.
-       * @param idRoom
+       * @param locale
        * @returns {*}
        */
-      getSongsForRoom: function(idRoom) {
-        return getSongs(idRoom);
+      getRooms: function (locale) {
+        console.log('getRooms');
+        return getRooms(locale)
       }
     }
   });

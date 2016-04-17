@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'pascalprecht.translate', 'ionic-audio', 'ngCordova'])
 
-  .run(function ($ionicPlatform, $cordovaGlobalization, $translate) {
+  .run(function ($ionicPlatform, $cordovaGlobalization, $translate, $rootScope, RoomsFactory) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -19,6 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+
       $cordovaGlobalization.getPreferredLanguage().then(
         function (result) {
           var language = result.value.split("-")[0];
@@ -29,6 +30,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           });
         });
     });
+
+    $rootScope.rooms = RoomsFactory.getRooms('en');
   })
   .config(function ($translateProvider) {
     $translateProvider.useStaticFilesLoader({
@@ -42,10 +45,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     $stateProvider
       .state('app', {
         url: '/app',
+        cache: false,
         abstract: true,
         templateUrl: 'templates/menu.html',
         controller: 'AppCtrl',
-        controllerAs: 'main'
+        controllerAs: 'mainCtrl'
+      })
+      .state('app.home', {
+        url: '/home/',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/home.html',
+            controller: 'HomeCtrl',
+            controllerAs: 'homeCtrl'
+          }
+        }
+      })
+      .state('app.about', {
+        url: '/about/',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/about.html',
+            controller: 'AboutCtrl',
+            controllerAs: 'aboutCtrl'
+          }
+        }
       })
       .state('app.room', {
         url: '/rooms/:roomId',
@@ -53,14 +77,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           'menuContent': {
             templateUrl: 'templates/room.html',
             controller: 'RoomCtrl',
-            controllerAs: 'room'
+            controllerAs: 'roomCtrl'
           }
         }
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/rooms/1');
-  }).filter('capitalize', function() {
-  return function(input) {
+    $urlRouterProvider.otherwise('/app/home/');
+  }).filter('capitalize', function () {
+  return function (input) {
     return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
   }
 });

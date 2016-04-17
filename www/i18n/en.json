@@ -1,4 +1,8 @@
 {
   "room":"room",
-  "rooms":"rooms"
+  "rooms":"rooms",
+  "home.title": "home",
+  "home.txt": "welcome in the museum application",
+  "about.title": "about",
+  "about.txt": "about this application"
 }
