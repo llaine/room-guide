@@ -1,4 +1,8 @@
 {
   "room":"room",
-  "rooms":"rooms"
+  "rooms":"rooms",
+  "home": "home",
+  "homeTxt": "Welcome in the museum application",
+  "about": "about",
+  "aboutTxt": "About this application"
 }

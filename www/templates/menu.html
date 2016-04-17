@@ -18,8 +18,14 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
+        <ion-item menu-close href="#/app/home/">
+          {{'home' | translate | capitalize}}
+        </ion-item>
         <ion-item menu-close ng-repeat="room in main.rooms" href="#/app/rooms/{{room.id}}">
           {{'room' | translate | capitalize}} {{room.id}}
+        </ion-item>
+        <ion-item menu-close href="#/app/about/">
+          {{'about' | translate | capitalize}}
         </ion-item>
       </ion-list>
     </ion-content>

@@ -1,4 +1,8 @@
 {
   "room":"salle",
-  "rooms":"salles"
+  "rooms":"salles",
+  "home": "accueil",
+  "homeTxt": "Bienvenue sur l'application du musée",
+  "about": "a propos",
+  "aboutTxt": "A propos de cette application"
 }

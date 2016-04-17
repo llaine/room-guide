@@ -1,0 +1,19 @@
+<ion-view view-title="{{'home' | translate | capitalize}}">
+  <ion-content>
+    <div class="list card">
+      <div class="item item-image">
+        <img src="img/home.jpg">
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-text-wrap">
+       {{'homeTxt' | translate}}
+      </div>
+    </div>
+    <div class="list card">
+        <div class="item" ng-click="home.changeLanguage('es')">Español</div>
+        <div class="item" ng-click="home.changeLanguage('fr')">Français</div>
+        <div class="item" ng-click="home.changeLanguage('en')">English</div>
+    </div>
+  </ion-content>
+</ion-view>

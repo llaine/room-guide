@@ -13,11 +13,22 @@ angular.module('starter.controllers', [])
     ];
   })
 
-  .controller('RoomCtrl', function ($scope, $stateParams, AudioFactory) {
+  .controller('RoomCtrl', function ($stateParams, AudioFactory) {
     var self = this;
-    
     self.roomId = $stateParams.roomId;
-
     // $stateParams.roomId return a string.
-    self.tracks = AudioFactory.getSongsForRoom(parseInt($stateParams.roomId))
+    var roomIdParsed = parseInt($stateParams.roomId);
+    self.room = AudioFactory.getRoom(roomIdParsed);
+    self.tracks = AudioFactory.getSongsForRoom(roomIdParsed);
+  })
+
+  .controller('HomeCtrl', function ($translate) {
+    var self = this;
+    self.changeLanguage = function (lang) {
+      $translate.use(lang);
+    }
+  })
+
+  .controller('AboutCtrl', function () {
+    
   });
