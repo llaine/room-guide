@@ -47,6 +47,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller: 'AppCtrl',
         controllerAs: 'main'
       })
+      .state('app.home', {
+        url: '/home/',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/home.html',
+            controller: 'HomeCtrl',
+            controllerAs: 'home'
+          }
+        }
+      })
+      .state('app.about', {
+        url: '/about/',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/about.html',
+            controller: 'AboutCtrl',
+            controllerAs: 'about'
+          }
+        }
+      })
       .state('app.room', {
         url: '/rooms/:roomId',
         views: {
@@ -58,9 +78,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/rooms/1');
-  }).filter('capitalize', function() {
-  return function(input) {
+    $urlRouterProvider.otherwise('/app/home/');
+  }).filter('capitalize', function () {
+  return function (input) {
     return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
   }
 });

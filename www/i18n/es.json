@@ -1,4 +1,5 @@
 {
   "room":"sala",
-  "rooms":"salas"
+  "rooms":"salas",
+  "home": "home?"
 }
