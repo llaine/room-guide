@@ -1,4 +1,4 @@
-<ion-view view-title="{{'home' | translate | capitalize}}">
+<ion-view view-title="{{'home.title' | translate | capitalize}}">
   <ion-content>
     <div class="list card">
       <div class="item item-image">
@@ -7,13 +7,12 @@
     </div>
     <div class="card">
       <div class="item item-text-wrap">
-       {{'homeTxt' | translate}}
+        {{'home.txt' | translate | capitalize}}
       </div>
     </div>
     <div class="list card">
-        <div class="item" ng-click="home.changeLanguage('es')">Español</div>
-        <div class="item" ng-click="home.changeLanguage('fr')">Français</div>
-        <div class="item" ng-click="home.changeLanguage('en')">English</div>
+      <div class="item" ng-click="homeCtrl.changeLanguage('fr')">Français</div>
+      <div class="item" ng-click="homeCtrl.changeLanguage('en')">English</div>
     </div>
   </ion-content>
 </ion-view>

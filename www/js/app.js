@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'pascalprecht.translate', 'ionic-audio', 'ngCordova'])
 
-  .run(function ($ionicPlatform, $cordovaGlobalization, $translate) {
+  .run(function ($ionicPlatform, $cordovaGlobalization, $translate, $rootScope, RoomsFactory) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -19,6 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
       }
+
       $cordovaGlobalization.getPreferredLanguage().then(
         function (result) {
           var language = result.value.split("-")[0];
@@ -29,6 +30,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           });
         });
     });
+
+    $rootScope.rooms = RoomsFactory.getRooms('en');
   })
   .config(function ($translateProvider) {
     $translateProvider.useStaticFilesLoader({
@@ -42,10 +45,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     $stateProvider
       .state('app', {
         url: '/app',
+        cache: false,
         abstract: true,
         templateUrl: 'templates/menu.html',
         controller: 'AppCtrl',
-        controllerAs: 'main'
+        controllerAs: 'mainCtrl'
       })
       .state('app.home', {
         url: '/home/',
@@ -53,7 +57,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           'menuContent': {
             templateUrl: 'templates/home.html',
             controller: 'HomeCtrl',
-            controllerAs: 'home'
+            controllerAs: 'homeCtrl'
           }
         }
       })
@@ -63,7 +67,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           'menuContent': {
             templateUrl: 'templates/about.html',
             controller: 'AboutCtrl',
-            controllerAs: 'about'
+            controllerAs: 'aboutCtrl'
           }
         }
       })
@@ -73,7 +77,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
           'menuContent': {
             templateUrl: 'templates/room.html',
             controller: 'RoomCtrl',
-            controllerAs: 'room'
+            controllerAs: 'roomCtrl'
           }
         }
       });
