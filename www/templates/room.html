@@ -1,12 +1,15 @@
-<ion-view view-title="{{'room' | translate | capitalize}} {{room.roomId}}">
+<ion-view view-title="{{roomCtrl.room.name}}">
   <ion-content>
     <div class="list card">
-      <div class="item item-image">
-        <img src="{{room.room.art}}">
+      <div class="item item-body">
+        <img class="full-image" src="{{roomCtrl.room.art}}">
+        <p>
+          {{roomCtrl.room.description}}
+        </p>
       </div>
     </div>
     <div class="list card">
-      <ion-audio-track ng-repeat="track in room.tracks" track="track">
+      <ion-audio-track ng-repeat="track in roomCtrl.tracks" track="track">
         <div class="item item-icon-left">
           <ion-audio-controls>
             <a class="button button-icon icon" ion-audio-play></a>
