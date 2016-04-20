@@ -9,6 +9,13 @@
       </div>
     </div>
     <div class="list card">
+      <!--<div  ng-repeat="track in roomCtrl.tracks">
+        <p ng-click="roomCtrl.playTrack(track.url)">Play {{track.title}}</p>
+      </div>
+      <p ng-click="roomCtrl.pauseTrack(track.id)">Pause</p>
+      <p ng-click="roomCtrl.stopPlaying()">Stop</p>
+      <p ng-click="roomtCtrl.nextTrack()">Next</p>-->
+
       <ion-audio-track ng-repeat="track in roomCtrl.tracks" track="track">
         <div class="item item-icon-left">
           <ion-audio-controls>
@@ -23,6 +30,6 @@
   </ion-content>
   <ion-footer-bar style="height: 70px" align-title="left">
     <!-- can add 'display-info display-time' on ion-audio progress-bar -->
-    <ion-audio-progress-bar display-time display-info style="min-width : 100%;"></ion-audio-progress-bar>
+    <ion-audio-progress-bar display-time style="min-width : 100%;"></ion-audio-progress-bar>
   </ion-footer-bar>
 </ion-view>

@@ -14,7 +14,7 @@ angular.module('starter.services', [])
           {
             title: 'Roxane [FR]',
             artist: 'The Police',
-            art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
+            url: 'https://ionic-audio.s3.amazonaws.com/Roxane.mp3'
           }
         ]
       },{
@@ -25,7 +25,7 @@ angular.module('starter.services', [])
           {
             title: 'Roxane [FR]',
             artist: 'The Police',
-            art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
+            art: 'https://ionic-audio.s3.amazonaws.com/Roxane.mp3'
           }
         ]
       }
@@ -44,7 +44,7 @@ angular.module('starter.services', [])
           {
             title: 'Roxane [EN]',
             artist: 'The Police',
-            art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
+            url: 'https://ionic-audio.s3.amazonaws.com/Roxane.mp3'
           }
         ]
       },{
@@ -55,7 +55,7 @@ angular.module('starter.services', [])
           {
             title: 'Roxane [EN]',
             artist: 'The Police',
-            art: 'https://ionic-audio.s3.amazonaws.com/The_Police_Greatest_Hits.jpg'
+            art: 'https://ionic-audio.s3.amazonaws.com/Roxane.mp3'
           }
         ]
       }

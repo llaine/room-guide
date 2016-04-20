@@ -4,17 +4,64 @@ angular.module('starter.controllers', [])
 
   })
 
-  .controller('RoomCtrl', function ($stateParams, $rootScope, MediaManager) {
+  .controller('RoomCtrl', function ($stateParams, $rootScope, $interval, $cordovaMedia) {
     var self = this;
+    var media = null;
+    var isPause = false;
+    var timer;
 
     function _init() {
       var roomIdParsed = parseInt($stateParams.roomId);
       self.room = $rootScope.rooms[roomIdParsed - 1];
       self.tracks = $rootScope.rooms[roomIdParsed - 1].songs;
     }
-    
-    _init();
 
+    function initTimer() {
+      timer = $interval(function() {
+        media.currentTime().then(function(position) {
+          console.info('position', JSON.stringify(position));
+        })
+      }, 1000);
+    }
+
+    function clear() {
+      if (angular.isDefined(mediaTimer)) {
+        $interval.cancel(timer);
+        timer = undefined;
+      }
+
+      media = null;
+      isPause = false
+    }
+
+    self.playTrack = function(url) {
+      if (!media) {
+        console.info('Playing new song');
+        media = $cordovaMedia.newMedia(url);
+        media.play();
+        initTimer();
+      }
+    };
+
+    self.stopPlaying = function() {
+      if (media) {
+        console.info('Stop playing current song');
+        media.stop();
+        clear();
+      }
+    };
+
+    self.pauseTrack = function() {
+      console.info('Pausing current track');
+      if (isPause && media) {
+        media.play();
+      } else if (media && !isPause) {
+        media.pause();
+      }
+      isPause = !isPause
+    };
+
+    _init();
   })
 
   .controller('HomeCtrl', function ($translate, $ionicHistory, $rootScope, RoomsFactory) {
