@@ -83,8 +83,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/home/');
-  }).filter('capitalize', function () {
-  return function (input) {
-    return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
-  }
+  })
+  .filter('capitalize', function () {
+    return function (input) {
+      return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+    }
 });

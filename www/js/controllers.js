@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 
   })
 
-  .controller('RoomCtrl', function ($stateParams, $rootScope) {
+  .controller('RoomCtrl', function ($stateParams, $rootScope, MediaManager) {
     var self = this;
 
     function _init() {
@@ -12,8 +12,9 @@ angular.module('starter.controllers', [])
       self.room = $rootScope.rooms[roomIdParsed - 1];
       self.tracks = $rootScope.rooms[roomIdParsed - 1].songs;
     }
-
+    
     _init();
+
   })
 
   .controller('HomeCtrl', function ($translate, $ionicHistory, $rootScope, RoomsFactory) {
