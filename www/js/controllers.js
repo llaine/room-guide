@@ -1,14 +1,10 @@
 angular.module('starter.controllers', [])
-
   .controller('AppCtrl', function ($rootScope) {
 
   })
-
-  .controller('RoomCtrl', function ($stateParams, $rootScope, $interval, $cordovaMedia) {
+  .controller('RoomCtrl', function ($stateParams, $rootScope) {
     var self = this;
-    var media = null;
-    var isPause = false;
-    var timer;
+    self.track = null;
 
     function _init() {
       var roomIdParsed = parseInt($stateParams.roomId);
@@ -16,55 +12,13 @@ angular.module('starter.controllers', [])
       self.tracks = $rootScope.rooms[roomIdParsed - 1].songs;
     }
 
-    function initTimer() {
-      timer = $interval(function() {
-        media.currentTime().then(function(position) {
-          console.info('position', JSON.stringify(position));
-        })
-      }, 1000);
-    }
-
-    function clear() {
-      if (angular.isDefined(mediaTimer)) {
-        $interval.cancel(timer);
-        timer = undefined;
-      }
-
-      media = null;
-      isPause = false
-    }
-
-    self.playTrack = function(url) {
-      if (!media) {
-        console.info('Playing new song');
-        media = $cordovaMedia.newMedia(url);
-        media.play();
-        initTimer();
-      }
-    };
-
-    self.stopPlaying = function() {
-      if (media) {
-        console.info('Stop playing current song');
-        media.stop();
-        clear();
-      }
-    };
-
-    self.pauseTrack = function() {
-      console.info('Pausing current track');
-      if (isPause && media) {
-        media.play();
-      } else if (media && !isPause) {
-        media.pause();
-      }
-      isPause = !isPause
-    };
-
     _init();
-  })
 
-  .controller('HomeCtrl', function ($translate, $ionicHistory, $rootScope, RoomsFactory) {
+    $rootScope.$watch('track', function(newValue, oldValue, scope) {
+      console.log(arguments);
+    })
+  })
+  .controller('HomeCtrl', function ($translate, $ionicHistory, $rootScope, $state, RoomsFactory) {
     var self = this;
 
     function _init() {
@@ -82,7 +36,6 @@ angular.module('starter.controllers', [])
 
     _init();
   })
-
   .controller('AboutCtrl', function () {
 
   });
