@@ -10,12 +10,16 @@ angular.module('starter.controllers', [])
       var roomIdParsed = parseInt($stateParams.roomId);
       self.room = $rootScope.rooms[roomIdParsed - 1];
       self.tracks = $rootScope.rooms[roomIdParsed - 1].songs;
+      self.position = 0;
     }
 
     _init();
 
     $rootScope.$watch('track', function(newValue, oldValue, scope) {
-      console.log(arguments);
+      if(oldValue) {
+        self.track = self.tracks[self.position];
+        ++self.position;
+      }
     })
   })
   .controller('HomeCtrl', function ($translate, $ionicHistory, $rootScope, $state, RoomsFactory) {
