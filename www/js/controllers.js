@@ -17,8 +17,8 @@ angular.module('starter.controllers', [])
 
     $rootScope.$watch('track', function(newValue, oldValue, scope) {
       if(oldValue) {
-        self.track = self.tracks[self.position];
         ++self.position;
+        self.track = self.tracks[self.position];
       }
     })
   })
