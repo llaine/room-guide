@@ -2,8 +2,10 @@ angular.module('starter.controllers', [])
   .controller('AppCtrl', function ($rootScope) {
 
   })
-  .controller('RoomCtrl', function ($stateParams, $rootScope, $scope) {
+  .controller('RoomCtrl', function ($stateParams, $rootScope, $scope, $timeout) {
     var self = this;
+    
+    $scope.dynamicTrack = {};
 
     function _init() {
       var roomIdParsed = parseInt($stateParams.roomId);
@@ -13,22 +15,32 @@ angular.module('starter.controllers', [])
     }
     
     function nextTrack() {
-      self.position++;
-      var nextTrack = self.tracks[self.position];
-      
-      if(nextTrack) {
-        console.log('Will switch to next one ..')
-        self.playTrack(nextTrack);
+      var newPosition = self.position + 1;
+      var positionExists = self.tracks[newPosition];
+       
+      if(positionExists) {        
+        console.log('Will switch to next one ..');
+        
+        $scope.playTrack(newPosition);
+        $scope.togglePlayback = !$scope.togglePlayback;
+         
+        // Removing the ion-pause class
+        $timeout(function() { 
+          var tagName = 'track-' + (newPosition - 1);
+          angular.element(document.getElementById(tagName)).toggleClass('ion-play ion-pause')
+        }, 1000)
+        
       } else {
         // End of the playlist
         self.position = 0;
+        $scope.playTrack(0);
       }
     }
     
-    self.playTrack = function(track) {
-      console.log(self.track);
-      // TODO fonctionne pas
-      self.track = track;
+    
+    $scope.playTrack = function(position) {
+      console.log('Playing ...', position)
+      $scope.dynamicTrack = self.tracks[position];
     }
     
     _init();
