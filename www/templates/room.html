@@ -8,16 +8,16 @@
         </p>
       </div>
     </div>
-    <ion-audio-track ng-repeat="track in roomCtrl.tracks" track="track" toggle-playback="roomCtrl.togglePlayback">
+    <ion-audio-track ng-repeat="track in roomCtrl.tracks" track="track">
       <div class="item item-icon-left">
         <ion-audio-controls>
           <a class="button button-icon icon" ion-audio-play></a>
-          <ion-spinner icon="ios" style="position: relative; top: 8px; left: 4px"></ion-spinner>
         </ion-audio-controls>
         <h2>{{track.title}}</h2>
       </div>
     </ion-audio-track>
   </ion-content>
+  
   <ion-footer-bar style="height: 70px" align-title="left">
     <!-- can add 'display-info display-time' on ion-audio progress-bar -->
     <ion-audio-progress-bar display-time style="min-width : 100%;"></ion-audio-progress-bar>
