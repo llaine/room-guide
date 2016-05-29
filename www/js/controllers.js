@@ -17,20 +17,26 @@ angular.module('starter.controllers', [])
     function nextTrack() {
       var newPosition = self.position + 1;
       var positionExists = self.tracks[newPosition];
-       
-      if(positionExists) {        
+      
+      console.log(JSON.stringify(positionExists));
+      
+      if(positionExists) {
+        
         console.log('Will switch to next one ..');
+        
+        // Removing the ion-pause class
+        /*
+        $timeout(function() {
+          var tagName = 'track-' + (newPosition - 1);
+          angular.element(document.getElementById(tagName)).toggleClass('ion-play ion-pause')
+        }, 1000);
+        */
         
         $scope.playTrack(newPosition);
         $scope.togglePlayback = !$scope.togglePlayback;
-         
-        // Removing the ion-pause class
-        $timeout(function() { 
-          var tagName = 'track-' + (newPosition - 1);
-          angular.element(document.getElementById(tagName)).toggleClass('ion-play ion-pause')
-        }, 1000)
         
       } else {
+        console.log('Doesnt exists, returning to beginning of the queue')
         // End of the playlist
         self.position = 0;
         $scope.playTrack(0);
@@ -41,6 +47,7 @@ angular.module('starter.controllers', [])
     $scope.playTrack = function(position) {
       console.log('Playing ...', position)
       $scope.dynamicTrack = self.tracks[position];
+      
     }
     
     _init();
